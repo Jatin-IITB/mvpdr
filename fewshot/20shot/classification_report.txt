@@ -1,0 +1,58 @@
+================================================================================
+MVPDR Classification Report
+================================================================================
+
+Dataset: plantdoc
+Backbone: RN101
+Random Seed: 1
+Training Time: 22.07 minutes
+
+================================================================================
+Overall Performance
+================================================================================
+Best Test Accuracy:  59.69%
+Best Precision:      58.99%
+Best Recall:         60.33%
+Best F1-Score:       58.49%
+Best Epoch:          18/30
+
+================================================================================
+Per-Class Metrics
+================================================================================
+
+Class                                    Precision    Recall       F1-Score     Support   
+------------------------------------------------------------------------------------------
+Apple Scab Leaf                               33.33%      25.00%      28.57%         16
+Apple leaf                                    64.71%      73.33%      68.75%         15
+Apple rust leaf                               63.16%      63.16%      63.16%         19
+Bell pepper leaf                              55.56%      83.33%      66.67%          6
+Bell pepper leaf spot                         41.18%      50.00%      45.16%         14
+Blueberry leaf                                73.33%      52.38%      61.11%         21
+Cherry leaf                                   85.71%      66.67%      75.00%          9
+Corn Gray leaf spot                           34.48%      83.33%      48.78%         12
+Corn leaf blight                              90.91%      55.56%      68.97%         36
+Corn rust leaf                                81.25%      61.90%      70.27%         21
+Peach leaf                                    77.27%      85.00%      80.95%         20
+Potato leaf early blight                      28.57%      25.81%      27.12%         31
+Potato leaf late blight                       52.27%      57.50%      54.76%         40
+Raspberry leaf                                78.95%      68.18%      73.17%         22
+Soyabean leaf                                 42.86%      54.55%      48.00%         11
+Squash Powdery mildew leaf                    91.30%      87.50%      89.36%         24
+Strawberry leaf                               63.64%      82.35%      71.79%         17
+Tomato Early blight leaf                      15.38%      13.33%      14.29%         15
+Tomato Septoria leaf spot                     59.26%      55.17%      57.14%         29
+Tomato leaf                                   54.55%      75.00%      63.16%          8
+Tomato leaf bacterial spot                    28.57%      30.00%      29.27%         20
+Tomato leaf late blight                       39.13%      45.00%      41.86%         20
+Tomato leaf mosaic virus                      36.36%      50.00%      42.11%          8
+Tomato leaf yellow virus                      94.87%      84.09%      89.16%         44
+Tomato mold leaf                              53.85%      41.18%      46.67%         17
+grape leaf                                    80.00%      66.67%      72.73%         12
+grape leaf black rot                          72.22%      92.86%      81.25%         14
+
+================================================================================
+Macro Averages
+================================================================================
+Precision: 58.99%
+Recall:    60.33%
+F1-Score:  58.49%
