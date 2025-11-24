@@ -1,0 +1,9 @@
+dataset: plantdoc
+root_path: ""
+shots: 1
+backbone: RN101
+load_cache: False
+load_pre_feat: False
+lr: 0.001
+augment_epoch: 5
+train_epoch: 30
