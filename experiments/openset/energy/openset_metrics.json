@@ -1,0 +1,8 @@
+{
+  "method": "energy",
+  "auroc": 0.47565247252747256,
+  "aupr": 0.7937201145994366,
+  "fpr_at_95tpr": 0.9714285714285714,
+  "optimal_threshold": 89.3125,
+  "detection_accuracy": 0.23032629558541268
+}

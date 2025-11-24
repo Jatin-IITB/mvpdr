@@ -1,0 +1,8 @@
+{
+  "method": "msp",
+  "auroc": 0.5356913919413919,
+  "aupr": 0.8220168793526186,
+  "fpr_at_95tpr": 0.9142857142857143,
+  "optimal_threshold": 0.802734375,
+  "detection_accuracy": 0.6391554702495201
+}

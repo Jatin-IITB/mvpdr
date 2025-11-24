@@ -1,0 +1,48 @@
+================================================================================
+COMPLETE FEW-SHOT LEARNING ANALYSIS
+MVPDR on PlantDoc Dataset
+================================================================================
+
+RESULTS TABLE:
+--------------------------------------------------------------------------------
+ Shots         Label  Accuracy  Precision    Recall  F1-Score  Epoch
+     0 Full Training 72.360845  72.026482 71.041859 70.542213     22
+     1        1-shot 34.548944  42.720985 35.976961 32.721393      5
+     5        5-shot 47.408829  49.102957 50.220255 46.948622     14
+    10       10-shot 57.389635  56.195081 57.648871 55.467006     19
+    20       20-shot 59.692898  58.987989 60.327757 58.489480     18
+
+--------------------------------------------------------------------------------
+
+KEY FINDINGS:
+--------------------------------------------------------------------------------
+1. Full Training Performance: 72.36% accuracy
+   - Best achievable with complete training data
+
+2. Extreme Few-Shot (1-shot): 34.55% accuracy
+   - 47.7% of full performance with just 1 example per class
+   - Better than random (27 classes = 3.7% random baseline)
+
+3. Standard Few-Shot (5-shot): 47.41% accuracy
+   - 65.5% of full performance with 5 examples per class
+   - Improvement from 1-shot: +12.86% (37.2% relative gain)
+
+4. Medium Few-Shot (10-shot): 57.39% accuracy
+   - 79.3% of full performance
+   - Improvement from 5-shot: +9.98%
+
+5. High Few-Shot (20-shot): 59.69% accuracy
+   - 82.5% of full performance
+   - Improvement from 10-shot: +2.30%
+   - Diminishing returns evident (smaller gains as shots increase)
+
+--------------------------------------------------------------------------------
+PRACTICAL IMPLICATIONS:
+--------------------------------------------------------------------------------
+• With just 5 labeled examples per disease class, MVPDR achieves
+  65.5% of full-training performance
+• This enables rapid deployment for new diseases with minimal labeling effort
+• 20-shot achieves 82.5% performance, providing strong results
+  with practical data collection requirements
+
+================================================================================

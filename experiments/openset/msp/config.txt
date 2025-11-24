@@ -1,0 +1,5 @@
+MVPDR Open-Set Detection
+Dataset: plantdoc
+Method: msp
+AUROC: 0.5357
+Unknown: ['Bell pepper leaf', 'Soyabean leaf', 'Tomato Early blight leaf', 'Tomato Septoria leaf spot', 'Tomato leaf yellow virus']
