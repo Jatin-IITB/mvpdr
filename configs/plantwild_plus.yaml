@@ -1,0 +1,32 @@
+dataset: plantwild
+root_path: ""
+shots: 20
+backbone: RN101
+
+# Architecture
+use_prompt_learner: true
+n_ctx: 4
+ctx_init: "a photo of a"
+class_specific_ctx: false
+
+use_prototype_bank: true
+prototype_levels: [4, 8, 16]
+proto_momentum: 0.999
+
+use_cross_attn: true
+n_heads: 8
+n_cross_layers: 2
+dropout: 0.1
+
+# Training
+train_epoch: 30
+augment_epoch: 5
+lr_prompt: 0.002
+lr_proto: 0.001
+lr_fusion: 0.0005
+weight_decay: 0.01
+lambda_v: 0.5
+lambda_t: 0.5
+
+load_cache: false
+load_pre_feat: false

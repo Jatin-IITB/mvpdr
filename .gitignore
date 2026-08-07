@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PyTorch model/cache files
+*.pth
+*.pt
+*.onnx
+*.npy
+caches/
+
+# Dataset images (download separately)
+data/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Experiment artifacts (keep metrics text files)
+experiments/**/mvpdr_model.pth
+experiments/**/*.png
+experiments/**/*.npy
+results/
+
+# Temporary
+*.tmp
+*.bak
+temp/
+tmp/

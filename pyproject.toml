@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mvpdr"
+version = "1.0.0"
+description = "Multi-View Prototype-based Disease Recognition using CLIP"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Jatin Gupta", email = "jatin01.moodi@gmail.com"},
+]
+keywords = ["plant-disease", "clip", "few-shot-learning", "computer-vision", "prototypes"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "scikit-learn>=1.3.0",
+    "pandas>=2.0.0",
+    "matplotlib>=3.7.0",
+    "seaborn>=0.12.0",
+    "Pillow>=10.0.0",
+    "pyyaml>=6.0",
+    "tqdm>=4.65.0",
+    "ftfy",
+    "regex",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[project.scripts]
+mvpdr-train = "train:main"
+mvpdr-train-plus = "train_plus:main"
+mvpdr-train-da = "train_domain_adapt:main"
+mvpdr-predict = "predict:main"
+
+[tool.setuptools.packages.find]
+include = ["mvpdr*"]
+
+[tool.ruff]
+line-length = 120
