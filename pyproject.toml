@@ -33,6 +33,7 @@ dependencies = [
     "tqdm>=4.65.0",
     "ftfy",
     "regex",
+    "gradio>=4.0",
 ]
 
 [project.optional-dependencies]
