@@ -17,6 +17,7 @@ Usage:
 import argparse
 import os
 import tempfile
+import uuid
 
 import gradio as gr
 import matplotlib
@@ -29,9 +30,12 @@ import yaml
 from PIL import Image
 
 from mvpdr import clip
+from mvpdr.agent import DiagnosticContext, run_agentic_diagnosis
 from mvpdr.interpretability import GradCAM, plot_gradcam, plot_prototype_attention
+from mvpdr.knowledge import DiseaseKnowledgeBase
 from mvpdr.models import MVPDRPlus
 from mvpdr.openset import energy_score, msp_score
+from mvpdr.severity import estimate_severity_heuristic, plot_severity
 from mvpdr.utils import clip_classifier
 
 
@@ -82,6 +86,8 @@ def load_model(config_path, checkpoint_path=None, zero_shot=False):
     _state["device"] = device
     _state["mode"] = mode
 
+    _state["knowledge_base"] = DiseaseKnowledgeBase()
+
     print(f"Loaded: {cfg['dataset']} | {cfg['backbone']} | "
           f"{'MVPDRPlus' if model else 'Zero-shot CLIP'} | {device}")
     print(f"Classes: {len(classnames)}")
@@ -93,7 +99,7 @@ def load_model(config_path, checkpoint_path=None, zero_shot=False):
 
 def predict(image_pil):
     if image_pil is None:
-        return None, "No image provided", None, ""
+        return None, "No image provided", None, "", None, ""
 
     clip_model = _state["clip_model"]
     preprocess = _state["preprocess"]
@@ -141,7 +147,7 @@ def predict(image_pil):
     ax.grid(axis="x", alpha=0.2)
     plt.tight_layout()
 
-    conf_path = os.path.join(tempfile.gettempdir(), f"mvpdr_conf_{os.getpid()}.png")
+    conf_path = os.path.join(tempfile.gettempdir(), f"mvpdr_conf_{uuid.uuid4().hex[:8]}.png")
     fig_conf.savefig(conf_path, dpi=150, bbox_inches="tight")
     plt.close(fig_conf)
 
@@ -157,6 +163,7 @@ def predict(image_pil):
         template = ["a photo of a {}."]
         text_features = clip_classifier(classnames, template, clip_model).t()
 
+    cam_resized = None
     gradcam = GradCAM(clip_model)
     try:
         cam, cam_idx = gradcam.generate(image_tensor, text_features, class_idx=top_idx[0].item())
@@ -180,13 +187,25 @@ def predict(image_pil):
         fig_cam.suptitle(f"Activation: {pred_name}", fontsize=14, fontweight="bold")
         plt.tight_layout()
 
-        cam_path = os.path.join(tempfile.gettempdir(), f"mvpdr_cam_{os.getpid()}.png")
+        cam_path = os.path.join(tempfile.gettempdir(), f"mvpdr_cam_{uuid.uuid4().hex[:8]}.png")
         fig_cam.savefig(cam_path, dpi=150, bbox_inches="tight")
         plt.close(fig_cam)
     except RuntimeError:
         cam_path = None
     finally:
         gradcam.remove_hooks()
+
+    # ---- severity estimation ----
+    severity = estimate_severity_heuristic(
+        gradcam_map=cam_resized if cam_resized is not None else np.zeros((1, 1)),
+        classification_confidence=top_probs[0].item(),
+    )
+
+    sev_path = os.path.join(tempfile.gettempdir(), f"mvpdr_sev_{uuid.uuid4().hex[:8]}.png")
+    try:
+        plot_severity(severity, save_path=sev_path)
+    except Exception:
+        sev_path = None
 
     # ---- open-set score ----
     e_score = energy_score(logits).item()
@@ -202,10 +221,26 @@ def predict(image_pil):
     else:
         openset_text += "**Low confidence** — this may be an unknown class or non-disease image."
 
+    # ---- diagnostic report ----
+    top_predictions = [
+        (classnames[idx.item()], prob.item())
+        for idx, prob in zip(top_idx, top_probs)
+    ]
+
+    ctx = DiagnosticContext(
+        classnames=classnames,
+        top_predictions=top_predictions,
+        severity=severity,
+        knowledge_base=_state.get("knowledge_base"),
+    )
+
+    report = run_agentic_diagnosis(ctx)
+    report_md = report.to_markdown()
+
     # ---- result summary ----
     summary = f"**{pred_name}** ({pred_conf:.1f}% confidence)"
 
-    return conf_path, summary, cam_path, openset_text
+    return conf_path, summary, cam_path, openset_text, sev_path, report_md
 
 
 # ---------------------------------------------------------------------------
@@ -214,14 +249,15 @@ def predict(image_pil):
 
 def build_demo():
     with gr.Blocks(
-        title="MVPDR+ Plant Disease Classifier",
+        title="MVPDR+ Plant Disease Diagnostic System",
         theme=gr.themes.Soft(),
     ) as demo:
         gr.Markdown(
-            "# MVPDR+ Plant Disease Classifier\n"
-            "Upload a plant leaf image to identify diseases using "
-            "CLIP-based multi-view prototype recognition with learnable prompts, "
-            "hierarchical prototypes, and cross-attention fusion."
+            "# MVPDR+ Plant Disease Diagnostic System\n"
+            "Upload a plant leaf image for AI-powered disease diagnosis with "
+            "severity estimation, treatment recommendations, and visual explanations.\n\n"
+            "Powered by CLIP-based multi-view prototype recognition with learnable prompts, "
+            "hierarchical prototypes, cross-attention fusion, and an agentic diagnostic pipeline."
         )
 
         with gr.Row():
@@ -231,31 +267,43 @@ def build_demo():
                     type="pil",
                     height=350,
                 )
-                run_btn = gr.Button("Classify", variant="primary", size="lg")
+                run_btn = gr.Button("Diagnose", variant="primary", size="lg")
 
                 mode_info = _state.get("mode", "unknown")
                 model_name = "MVPDRPlus" if mode_info == "mvpdr_plus" else "Zero-shot CLIP"
                 backbone = _state.get("cfg", {}).get("backbone", "?")
                 dataset = _state.get("cfg", {}).get("dataset", "?")
                 n_cls = len(_state.get("classnames", []))
+                try:
+                    import ollama as _ol
+                    agent_mode = "Agentic (Ollama/Qwen)"
+                except ImportError:
+                    agent_mode = "Agentic (Claude)" if os.environ.get("ANTHROPIC_API_KEY") else "Rule-based"
                 gr.Markdown(
                     f"**Model:** {model_name}  \n"
                     f"**Backbone:** {backbone}  \n"
-                    f"**Dataset:** {dataset} ({n_cls} classes)"
+                    f"**Dataset:** {dataset} ({n_cls} classes)  \n"
+                    f"**Agent:** {agent_mode}"
                 )
 
             with gr.Column(scale=2):
                 summary_out = gr.Markdown(label="Prediction")
                 conf_out = gr.Image(label="Confidence Scores", height=280)
 
-        with gr.Row():
-            cam_out = gr.Image(label="GradCAM Visualization", height=320)
-            openset_out = gr.Markdown(label="Open-Set Detection")
+        with gr.Tabs():
+            with gr.TabItem("Visual Explanation"):
+                with gr.Row():
+                    cam_out = gr.Image(label="GradCAM Visualization", height=320)
+                    sev_out = gr.Image(label="Severity Assessment", height=320)
+            with gr.TabItem("Diagnostic Report"):
+                report_out = gr.Markdown(label="AI Diagnostic Report")
+            with gr.TabItem("Open-Set Detection"):
+                openset_out = gr.Markdown(label="Open-Set Detection Scores")
 
         run_btn.click(
             fn=predict,
             inputs=[image_input],
-            outputs=[conf_out, summary_out, cam_out, openset_out],
+            outputs=[conf_out, summary_out, cam_out, openset_out, sev_out, report_out],
         )
 
     return demo

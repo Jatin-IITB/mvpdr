@@ -34,6 +34,7 @@ caches/
 
 # Dataset images (download separately)
 data/
+!mvpdr/data/
 
 # Jupyter
 .ipynb_checkpoints/

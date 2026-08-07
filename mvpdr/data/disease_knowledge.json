@@ -1,0 +1,485 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-08-07",
+    "source": "Compiled from agricultural extension services, USDA, and peer-reviewed phytopathology literature",
+    "n_diseases": 25
+  },
+  "diseases": {
+    "apple_scab": {
+      "common_name": "Apple Scab",
+      "scientific_name": "Venturia inaequalis",
+      "pathogen_type": "fungal",
+      "affected_crops": ["apple"],
+      "aliases": ["Apple Scab Leaf", "apple scab"],
+      "symptoms": {
+        "mild": "Small olive-green to brown spots on leaves, slight leaf curling at edges",
+        "moderate": "Dark, velvety lesions covering 20-50% of leaf surface, premature yellowing",
+        "severe": "Extensive black scabby lesions, heavy defoliation, fruit cracking and deformation"
+      },
+      "treatments": {
+        "chemical": ["Captan (2-3 lb/acre)", "Mancozeb (3 lb/acre)", "Myclobutanil (5 oz/acre)"],
+        "biological": ["Bacillus subtilis sprays", "Trichoderma harzianum soil drench"],
+        "cultural": ["Remove fallen leaves in autumn", "Prune for air circulation", "Plant resistant cultivars (Liberty, Enterprise)"]
+      },
+      "prevention": ["Apply fungicide at green tip stage", "Maintain open canopy", "Monitor weather for infection periods (Mills table)"],
+      "environmental_risk": {"temperature_c": [15, 25], "humidity_pct": 80, "rainfall": "high"}
+    },
+    "apple_rust": {
+      "common_name": "Cedar Apple Rust",
+      "scientific_name": "Gymnosporangium juniperi-virginianae",
+      "pathogen_type": "fungal",
+      "affected_crops": ["apple"],
+      "aliases": ["Apple rust leaf", "cedar apple rust"],
+      "symptoms": {
+        "mild": "Small yellow-orange spots on upper leaf surface",
+        "moderate": "Raised orange pustules on leaf undersides, spots enlarging to 5-10mm",
+        "severe": "Extensive orange-red lesions with tube-like structures, premature leaf drop, fruit infection"
+      },
+      "treatments": {
+        "chemical": ["Myclobutanil (Rally) at pink bud stage", "Triadimefon (Bayleton)", "Fenarimol"],
+        "biological": ["Neem oil applications", "Sulfur-based organic sprays"],
+        "cultural": ["Remove nearby juniper/cedar hosts within 2-mile radius", "Plant resistant varieties (Redfree, Liberty)"]
+      },
+      "prevention": ["Apply fungicide from tight cluster through 2nd cover", "Scout for galls on junipers in spring", "Remove galls before sporulation"],
+      "environmental_risk": {"temperature_c": [10, 25], "humidity_pct": 70, "rainfall": "moderate-high"}
+    },
+    "bell_pepper_bacterial_spot": {
+      "common_name": "Bacterial Leaf Spot",
+      "scientific_name": "Xanthomonas campestris pv. vesicatoria",
+      "pathogen_type": "bacterial",
+      "affected_crops": ["bell pepper", "pepper"],
+      "aliases": ["Bell_pepper leaf spot", "pepper bacterial spot"],
+      "symptoms": {
+        "mild": "Small, water-soaked spots on leaves, slightly raised",
+        "moderate": "Dark brown to black angular lesions with yellow halos, 3-5mm diameter",
+        "severe": "Extensive leaf blight, defoliation over 50%, fruit lesions (raised scab-like)"
+      },
+      "treatments": {
+        "chemical": ["Copper hydroxide (2 lb/acre) + mancozeb", "Streptomycin (limited efficacy)"],
+        "biological": ["Bacillus amyloliquefaciens sprays", "Copper-based organic approved products"],
+        "cultural": ["Remove infected plant debris", "Rotate to non-solanaceous crops for 2 years", "Use drip irrigation to avoid wetting foliage"]
+      },
+      "prevention": ["Use certified disease-free seed and transplants", "Hot water seed treatment (125F for 25 min)", "Avoid overhead irrigation"],
+      "environmental_risk": {"temperature_c": [24, 30], "humidity_pct": 85, "rainfall": "high"}
+    },
+    "corn_gray_leaf_spot": {
+      "common_name": "Gray Leaf Spot",
+      "scientific_name": "Cercospora zeae-maydis",
+      "pathogen_type": "fungal",
+      "affected_crops": ["corn", "maize"],
+      "aliases": ["Corn Gray leaf spot", "corn grey leaf spot"],
+      "symptoms": {
+        "mild": "Small rectangular tan-gray lesions between leaf veins",
+        "moderate": "Elongated gray lesions 2-5cm, parallel to veins, covering 25-50% of leaf",
+        "severe": "Coalescent lesions causing entire leaf blight, premature plant death"
+      },
+      "treatments": {
+        "chemical": ["Azoxystrobin (Quadris) at VT-R1", "Pyraclostrobin + metconazole", "Propiconazole (Tilt)"],
+        "biological": ["Trichoderma-based biocontrol agents"],
+        "cultural": ["Rotate with non-host crops", "Tillage to bury crop residue", "Plant resistant hybrids"]
+      },
+      "prevention": ["Scout starting at V8-V10", "Apply fungicide if weather favors disease at VT-R1", "Reduce continuous corn planting"],
+      "environmental_risk": {"temperature_c": [22, 30], "humidity_pct": 90, "rainfall": "moderate"}
+    },
+    "corn_northern_leaf_blight": {
+      "common_name": "Northern Corn Leaf Blight",
+      "scientific_name": "Exserohilum turcicum",
+      "pathogen_type": "fungal",
+      "affected_crops": ["corn", "maize"],
+      "aliases": ["Corn leaf blight", "northern leaf blight", "turcicum leaf blight"],
+      "symptoms": {
+        "mild": "Elongated elliptical gray-green lesions 2-5cm on lower leaves",
+        "moderate": "Cigar-shaped lesions 5-15cm, gray-green turning tan, spreading to upper canopy",
+        "severe": "Massive lesion coverage causing complete leaf necrosis, significant yield loss"
+      },
+      "treatments": {
+        "chemical": ["Azoxystrobin + propiconazole at VT-R1", "Trifloxystrobin (Flint)", "Picoxystrobin"],
+        "biological": ["Bacillus subtilis foliar applications"],
+        "cultural": ["Crop rotation with soybeans or small grains", "Deep tillage of residue", "Plant resistant hybrids with Ht genes"]
+      },
+      "prevention": ["Monitor lower leaves starting V8", "Apply fungicide when lesions reach ear leaf", "Choose hybrids with multiple Ht resistance genes"],
+      "environmental_risk": {"temperature_c": [18, 27], "humidity_pct": 85, "rainfall": "moderate-high"}
+    },
+    "corn_common_rust": {
+      "common_name": "Common Corn Rust",
+      "scientific_name": "Puccinia sorghi",
+      "pathogen_type": "fungal",
+      "affected_crops": ["corn", "maize"],
+      "aliases": ["Corn rust leaf", "corn rust"],
+      "symptoms": {
+        "mild": "Small circular to elongated cinnamon-brown pustules on both leaf surfaces",
+        "moderate": "Numerous pustules coalescing, dark reddish-brown spore masses, chlorotic halos",
+        "severe": "Dense pustule coverage, premature leaf senescence, secondary infections"
+      },
+      "treatments": {
+        "chemical": ["Triazole fungicides (propiconazole, tebuconazole)", "Strobilurin fungicides at tassel"],
+        "biological": ["Generally not economically necessary for common rust"],
+        "cultural": ["Plant resistant hybrids (Rp genes)", "Early planting to avoid late-season spore pressure"]
+      },
+      "prevention": ["Monitor for pustule development starting at V10", "Fungicide only if severe before tasseling", "Use hybrids with partial resistance"],
+      "environmental_risk": {"temperature_c": [16, 23], "humidity_pct": 80, "rainfall": "moderate"}
+    },
+    "grape_black_rot": {
+      "common_name": "Grape Black Rot",
+      "scientific_name": "Guignardia bidwellii",
+      "pathogen_type": "fungal",
+      "affected_crops": ["grape"],
+      "aliases": ["grape leaf black rot", "black rot"],
+      "symptoms": {
+        "mild": "Tan circular leaf spots with dark brown margins, 2-10mm",
+        "moderate": "Numerous leaf spots with black pycnidia visible, early fruit infection (brown spots)",
+        "severe": "Berries shrivel to hard black mummies, widespread canopy infection"
+      },
+      "treatments": {
+        "chemical": ["Myclobutanil (Rally) from bloom to veraison", "Mancozeb pre-bloom", "Captan + myclobutanil rotation"],
+        "biological": ["Bacillus subtilis (Serenade)", "Potassium bicarbonate"],
+        "cultural": ["Remove and destroy mummified berries", "Prune for air circulation and sunlight penetration", "Sanitation of dropped fruit"]
+      },
+      "prevention": ["Begin fungicide applications at 10-inch shoot growth", "Critical spray period: bloom through 4 weeks post-bloom", "Remove wild grapes nearby"],
+      "environmental_risk": {"temperature_c": [20, 30], "humidity_pct": 80, "rainfall": "high"}
+    },
+    "potato_early_blight": {
+      "common_name": "Potato Early Blight",
+      "scientific_name": "Alternaria solani",
+      "pathogen_type": "fungal",
+      "affected_crops": ["potato"],
+      "aliases": ["Potato leaf early blight", "alternaria leaf spot"],
+      "symptoms": {
+        "mild": "Small dark brown spots with concentric rings (target-spot pattern) on older leaves",
+        "moderate": "Enlarging lesions with prominent concentric rings, lower leaf yellowing and drop",
+        "severe": "Extensive defoliation starting from bottom, stem lesions, tuber infection (dark sunken spots)"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil (Bravo) on 7-10 day schedule", "Azoxystrobin (Quadris)", "Boscalid + pyraclostrobin"],
+        "biological": ["Trichoderma viride soil applications", "Bacillus subtilis foliar sprays"],
+        "cultural": ["3-year crop rotation away from solanaceous crops", "Adequate spacing for air circulation", "Balanced fertilization (avoid excess nitrogen)"]
+      },
+      "prevention": ["Use certified disease-free seed tubers", "Begin fungicide at row closure or first symptoms", "Harvest mature tubers to avoid skin injury"],
+      "environmental_risk": {"temperature_c": [20, 30], "humidity_pct": 75, "rainfall": "moderate"}
+    },
+    "potato_late_blight": {
+      "common_name": "Potato Late Blight",
+      "scientific_name": "Phytophthora infestans",
+      "pathogen_type": "oomycete",
+      "affected_crops": ["potato", "tomato"],
+      "aliases": ["Potato leaf late blight", "late blight"],
+      "symptoms": {
+        "mild": "Water-soaked irregular pale green spots at leaf tips and edges",
+        "moderate": "Dark brown-black lesions expanding rapidly, white cottony sporangia on undersides in humid conditions",
+        "severe": "Entire plant collapse within days, foul-smelling tuber rot, devastating field-wide losses"
+      },
+      "treatments": {
+        "chemical": ["Metalaxyl + mancozeb (Ridomil Gold MZ)", "Cymoxanil + mancozeb", "Fluopicolide (Presidio)"],
+        "biological": ["Copper hydroxide (organic approved)", "Phosphorous acid products"],
+        "cultural": ["Destroy infected plant material immediately", "Hill tubers to prevent spore wash to tubers", "Avoid overhead irrigation"]
+      },
+      "prevention": ["Use certified seed from disease-free sources", "Apply protectant fungicides before disease onset", "Monitor weather forecasts (Blitecast/Simcast)"],
+      "environmental_risk": {"temperature_c": [10, 20], "humidity_pct": 90, "rainfall": "high"}
+    },
+    "tomato_early_blight": {
+      "common_name": "Tomato Early Blight",
+      "scientific_name": "Alternaria solani",
+      "pathogen_type": "fungal",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato Early blight leaf", "tomato alternaria"],
+      "symptoms": {
+        "mild": "Dark brown spots with concentric rings on lower leaves",
+        "moderate": "Target-spot lesions enlarge, yellow halos form, lower third of plant defoliated",
+        "severe": "Extensive defoliation, stem cankers, fruit calyx-end rot with dark leathery lesions"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil (Daconil) every 7-10 days", "Azoxystrobin (Amistar)", "Difenoconazole"],
+        "biological": ["Trichoderma harzianum", "Bacillus subtilis (Serenade)"],
+        "cultural": ["Stake and prune for air movement", "Mulch to prevent soil splash", "Remove lower leaves touching soil"]
+      },
+      "prevention": ["Rotate out of tomato/potato for 3 years", "Use resistant varieties (Mountain Magic, Defiant)", "Begin sprays at first fruit set"],
+      "environmental_risk": {"temperature_c": [24, 29], "humidity_pct": 80, "rainfall": "moderate"}
+    },
+    "tomato_late_blight": {
+      "common_name": "Tomato Late Blight",
+      "scientific_name": "Phytophthora infestans",
+      "pathogen_type": "oomycete",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato leaf late blight"],
+      "symptoms": {
+        "mild": "Irregularly shaped water-soaked gray-green spots on leaves",
+        "moderate": "Large dark brown-black blotches, white mold on undersides, stem streaking",
+        "severe": "Rapid plant collapse, brown greasy fruit rot, entire crop loss possible within a week"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil (preventive)", "Metalaxyl-M + mancozeb", "Cymoxanil (Curzate)"],
+        "biological": ["Copper-based sprays (Bordeaux mixture)", "Phosphonate products"],
+        "cultural": ["Remove and destroy infected plants immediately", "Do not compost infected material", "Space plants for airflow"]
+      },
+      "prevention": ["Buy healthy transplants", "Avoid planting near potatoes", "Apply fungicide before wet weather forecasts"],
+      "environmental_risk": {"temperature_c": [12, 22], "humidity_pct": 90, "rainfall": "high"}
+    },
+    "tomato_septoria_leaf_spot": {
+      "common_name": "Septoria Leaf Spot",
+      "scientific_name": "Septoria lycopersici",
+      "pathogen_type": "fungal",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato Septoria leaf spot"],
+      "symptoms": {
+        "mild": "Small circular spots (1-3mm) with dark borders and gray centers on lower leaves",
+        "moderate": "Numerous spots coalescing, tiny black pycnidia visible in centers, progressive defoliation upward",
+        "severe": "Near-complete defoliation, fruit sunscald from exposure, significant yield loss"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil every 7-10 days during wet weather", "Mancozeb", "Azoxystrobin"],
+        "biological": ["Copper hydroxide sprays", "Bacillus subtilis"],
+        "cultural": ["Remove infected lower leaves", "Avoid working in wet foliage", "Stake or cage plants for airflow"]
+      },
+      "prevention": ["Rotate crops for 2-3 years", "Mulch heavily to prevent splash", "Use drip irrigation"],
+      "environmental_risk": {"temperature_c": [20, 25], "humidity_pct": 85, "rainfall": "high"}
+    },
+    "tomato_bacterial_spot": {
+      "common_name": "Tomato Bacterial Spot",
+      "scientific_name": "Xanthomonas vesicatoria",
+      "pathogen_type": "bacterial",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato leaf bacterial spot"],
+      "symptoms": {
+        "mild": "Small dark water-soaked spots on leaves, greasy appearance",
+        "moderate": "Angular brown-black lesions with yellow halos, spots on stems and petioles",
+        "severe": "Widespread defoliation, raised scab-like spots on fruit, major quality loss"
+      },
+      "treatments": {
+        "chemical": ["Copper hydroxide + mancozeb tank mix", "Acibenzolar-S-methyl (Actigard) for SAR"],
+        "biological": ["Bacillus amyloliquefaciens", "Bacteriophage applications"],
+        "cultural": ["Remove infected debris", "Avoid overhead watering", "Sanitize tools between plants"]
+      },
+      "prevention": ["Use pathogen-free seed (hot water treat at 122F for 25 min)", "Avoid working in wet fields", "Plant resistant varieties"],
+      "environmental_risk": {"temperature_c": [24, 30], "humidity_pct": 85, "rainfall": "high"}
+    },
+    "tomato_mosaic_virus": {
+      "common_name": "Tomato Mosaic Virus",
+      "scientific_name": "Tomato mosaic virus (ToMV)",
+      "pathogen_type": "viral",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato leaf mosaic virus", "ToMV"],
+      "symptoms": {
+        "mild": "Light and dark green mosaic pattern on young leaves",
+        "moderate": "Leaf distortion, fern-like appearance, reduced leaf size, uneven ripening of fruit",
+        "severe": "Severe stunting, shoestring leaves, fruit with internal browning, major yield loss"
+      },
+      "treatments": {
+        "chemical": ["No chemical cure for viral diseases"],
+        "biological": ["Cross-protection with mild strains (experimental)"],
+        "cultural": ["Remove and destroy infected plants", "Disinfect hands and tools with milk or 10% bleach", "Control aphid vectors"]
+      },
+      "prevention": ["Use resistant varieties (Tm-2 gene)", "Disinfect greenhouse structures", "Wash hands with soap before handling plants"],
+      "environmental_risk": {"temperature_c": [15, 35], "humidity_pct": 50, "rainfall": "not weather dependent"}
+    },
+    "tomato_yellow_leaf_curl": {
+      "common_name": "Tomato Yellow Leaf Curl Virus",
+      "scientific_name": "Tomato yellow leaf curl virus (TYLCV)",
+      "pathogen_type": "viral",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato leaf yellow virus", "TYLCV", "tomato yellow leaf curl"],
+      "symptoms": {
+        "mild": "Slight upward curling of leaf margins, mild yellowing of new growth",
+        "moderate": "Pronounced upward cupping and yellowing of leaves, stunted growth, flower drop",
+        "severe": "Severe stunting, thick leathery yellow leaves, minimal or no fruit set"
+      },
+      "treatments": {
+        "chemical": ["No cure; manage whitefly vector with imidacloprid or cyantraniliprole"],
+        "biological": ["Beauveria bassiana for whitefly control", "Reflective mulches to repel whiteflies"],
+        "cultural": ["Remove infected plants promptly", "Use fine-mesh insect netting (50-mesh)", "Plant trap crops for whiteflies"]
+      },
+      "prevention": ["Use TYLCV-resistant varieties (Ty-1, Ty-2 genes)", "Install yellow sticky traps for whitefly monitoring", "Avoid planting near infected fields"],
+      "environmental_risk": {"temperature_c": [25, 35], "humidity_pct": 60, "rainfall": "dry, warm conditions favor whitefly"}
+    },
+    "tomato_leaf_mold": {
+      "common_name": "Tomato Leaf Mold",
+      "scientific_name": "Passalora fulva (syn. Cladosporium fulvum)",
+      "pathogen_type": "fungal",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato mold leaf", "cladosporium leaf mold"],
+      "symptoms": {
+        "mild": "Pale green-yellow spots on upper leaf surfaces, olive-green mold on lower surfaces",
+        "moderate": "Spots enlarge, dense olive-brown velvety mold underneath, leaves curl upward",
+        "severe": "Extensive leaf browning and desiccation, fruit infection rare but possible"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil preventive sprays", "Azoxystrobin", "Difenoconazole"],
+        "biological": ["Bacillus subtilis", "Improve ventilation in greenhouses"],
+        "cultural": ["Increase plant spacing", "Remove lower leaves for airflow", "Reduce humidity below 85% in greenhouses"]
+      },
+      "prevention": ["Use resistant varieties (Cf genes)", "Maintain humidity below 80%", "Ensure good greenhouse ventilation"],
+      "environmental_risk": {"temperature_c": [22, 28], "humidity_pct": 90, "rainfall": "greenhouse/high humidity"}
+    },
+    "tomato_spider_mites": {
+      "common_name": "Two-Spotted Spider Mite Damage",
+      "scientific_name": "Tetranychus urticae",
+      "pathogen_type": "pest",
+      "affected_crops": ["tomato"],
+      "aliases": ["Tomato two spotted spider mites leaf", "spider mite damage"],
+      "symptoms": {
+        "mild": "Fine stippling (tiny yellow dots) on upper leaf surfaces",
+        "moderate": "Leaves turn bronze-yellow, fine webbing visible between leaves, stippling becomes dense",
+        "severe": "Extensive webbing, leaf desiccation and drop, plant dieback in severe infestations"
+      },
+      "treatments": {
+        "chemical": ["Abamectin (Agri-Mek)", "Bifenazate (Acramite)", "Spiromesifen (Oberon)"],
+        "biological": ["Release Phytoseiulus persimilis predatory mites", "Neoseiulus californicus for prevention", "Neem oil for low populations"],
+        "cultural": ["Increase humidity (mites prefer dry conditions)", "Remove heavily infested leaves", "Avoid broad-spectrum insecticides that kill natural enemies"]
+      },
+      "prevention": ["Scout weekly with hand lens on leaf undersides", "Maintain adequate irrigation (drought stress promotes mites)", "Establish predatory mite populations early"],
+      "environmental_risk": {"temperature_c": [27, 35], "humidity_pct": 40, "rainfall": "low, hot, dry conditions"}
+    },
+    "squash_powdery_mildew": {
+      "common_name": "Squash Powdery Mildew",
+      "scientific_name": "Podosphaera xanthii / Erysiphe cichoracearum",
+      "pathogen_type": "fungal",
+      "affected_crops": ["squash", "pumpkin", "cucumber", "melon"],
+      "aliases": ["Squash Powdery mildew leaf", "cucurbit powdery mildew"],
+      "symptoms": {
+        "mild": "Small white powdery spots on upper leaf surfaces",
+        "moderate": "White powder covers majority of leaf surface, leaves yellow at margins",
+        "severe": "Entire leaf surface coated, leaves brown and die, reduced fruit quality and sunscald"
+      },
+      "treatments": {
+        "chemical": ["Myclobutanil (Rally)", "Trifloxystrobin (Flint)", "Quinoxyfen (Quintec)"],
+        "biological": ["Potassium bicarbonate sprays", "Sulfur dust (not on melons)", "Bacillus subtilis (Serenade)"],
+        "cultural": ["Remove heavily infected leaves", "Ensure good air circulation", "Avoid excessive nitrogen fertilization"]
+      },
+      "prevention": ["Plant resistant varieties (PM-resistant cucurbits)", "Space plants adequately", "Apply fungicide at first sign of disease"],
+      "environmental_risk": {"temperature_c": [20, 27], "humidity_pct": 70, "rainfall": "low, warm humid air but dry leaf surface"}
+    },
+    "strawberry_leaf_scorch": {
+      "common_name": "Strawberry Leaf Scorch",
+      "scientific_name": "Diplocarpon earlianum",
+      "pathogen_type": "fungal",
+      "affected_crops": ["strawberry"],
+      "aliases": ["Strawberry leaf", "strawberry leaf scorch"],
+      "symptoms": {
+        "mild": "Small dark purple spots on upper leaf surfaces",
+        "moderate": "Spots enlarge with dark purple borders, centers may fall out creating shot-holes",
+        "severe": "Leaves appear scorched and brown at margins, heavy defoliation weakens plants"
+      },
+      "treatments": {
+        "chemical": ["Captan at renovation and in fall", "Myclobutanil", "Pyraclostrobin"],
+        "biological": ["Copper-based organic sprays"],
+        "cultural": ["Renovate beds after harvest (mow and thin)", "Remove old infected leaves", "Improve air circulation with proper spacing"]
+      },
+      "prevention": ["Plant resistant varieties", "Avoid overhead irrigation", "Maintain good field sanitation"],
+      "environmental_risk": {"temperature_c": [20, 28], "humidity_pct": 80, "rainfall": "moderate-high"}
+    },
+    "soybean_diseases": {
+      "common_name": "Soybean Leaf Diseases",
+      "scientific_name": "Various (Septoria glycines, Cercospora sojina, etc.)",
+      "pathogen_type": "fungal",
+      "affected_crops": ["soybean"],
+      "aliases": ["Soybean leaf", "soybean brown spot", "frogeye leaf spot"],
+      "symptoms": {
+        "mild": "Small angular brown spots between veins (brown spot) or circular spots with gray centers (frogeye)",
+        "moderate": "Spots coalesce, inter-veinal necrosis, premature yellowing of lower canopy",
+        "severe": "Early defoliation, pod infection, significant yield reduction"
+      },
+      "treatments": {
+        "chemical": ["Pyraclostrobin + fluxapyroxad at R3", "Azoxystrobin (Quadris)", "Trifloxystrobin"],
+        "biological": ["Bacillus-based biocontrol agents"],
+        "cultural": ["Rotate with corn or small grains", "Tillage to bury residue", "Plant resistant varieties for frogeye (Rcs3 gene)"]
+      },
+      "prevention": ["Scout at R1-R3 growth stages", "Apply fungicide if disease severity exceeds threshold at R3", "Use certified seed"],
+      "environmental_risk": {"temperature_c": [22, 30], "humidity_pct": 80, "rainfall": "moderate-high"}
+    },
+    "cherry_leaf_spot": {
+      "common_name": "Cherry Leaf Spot",
+      "scientific_name": "Blumeriella jaapii",
+      "pathogen_type": "fungal",
+      "affected_crops": ["cherry"],
+      "aliases": ["Cherry leaf", "cherry leaf spot"],
+      "symptoms": {
+        "mild": "Small purple-red spots on upper leaf surface",
+        "moderate": "Spots turn brown with white spore masses on undersides, yellowing around lesions",
+        "severe": "Heavy defoliation by midsummer, weakened trees susceptible to winter injury"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil at petal fall", "Myclobutanil", "Fenbuconazole (Indar)"],
+        "biological": ["Copper sprays at early leaf stage"],
+        "cultural": ["Rake and destroy fallen leaves", "Prune for canopy openness"]
+      },
+      "prevention": ["Apply fungicide from petal fall through harvest", "Select resistant rootstocks where available", "Maintain tree vigor with proper nutrition"],
+      "environmental_risk": {"temperature_c": [16, 25], "humidity_pct": 80, "rainfall": "high"}
+    },
+    "peach_leaf_curl": {
+      "common_name": "Peach Leaf Curl",
+      "scientific_name": "Taphrina deformans",
+      "pathogen_type": "fungal",
+      "affected_crops": ["peach", "nectarine"],
+      "aliases": ["Peach leaf", "peach leaf curl"],
+      "symptoms": {
+        "mild": "Slight puckering and reddening of young expanding leaves",
+        "moderate": "Leaves thickened, curled, and distorted with red-yellow coloration, white spore coating",
+        "severe": "Severe defoliation in spring, fruit drop, tree weakening if repeated years"
+      },
+      "treatments": {
+        "chemical": ["Copper hydroxide (single dormant spray)", "Chlorothalonil at dormant stage"],
+        "biological": ["Lime sulfur dormant spray (organic approved)"],
+        "cultural": ["Apply one dormant spray — disease cannot be controlled once symptoms appear", "Remove and destroy infected leaves"]
+      },
+      "prevention": ["MUST spray before bud swell in late winter", "Plant resistant varieties (Frost, Indian Free)", "One well-timed spray prevents all infection"],
+      "environmental_risk": {"temperature_c": [10, 21], "humidity_pct": 80, "rainfall": "cool wet spring weather"}
+    },
+    "raspberry_leaf_diseases": {
+      "common_name": "Raspberry Leaf Diseases",
+      "scientific_name": "Various (Sphaerulina rubi, Elsinoe veneta, etc.)",
+      "pathogen_type": "fungal",
+      "affected_crops": ["raspberry"],
+      "aliases": ["Raspberry leaf", "raspberry leaf spot", "anthracnose"],
+      "symptoms": {
+        "mild": "Small dark spots on leaves, minor cane lesions",
+        "moderate": "Leaf spots enlarge, gray centers develop, cane lesions deepen",
+        "severe": "Extensive leaf spotting and drop, deep cane cankers, fruit quality loss"
+      },
+      "treatments": {
+        "chemical": ["Lime sulfur dormant spray", "Captan during growing season", "Copper sprays"],
+        "biological": ["Bacillus subtilis applications"],
+        "cultural": ["Prune out old floricanes after harvest", "Thin canes for air circulation", "Avoid overhead irrigation"]
+      },
+      "prevention": ["Apply dormant spray before bud break", "Maintain narrow hedge rows", "Remove wild brambles nearby"],
+      "environmental_risk": {"temperature_c": [15, 25], "humidity_pct": 80, "rainfall": "moderate-high"}
+    },
+    "blueberry_leaf_diseases": {
+      "common_name": "Blueberry Leaf Diseases",
+      "scientific_name": "Various (Septoria albopunctata, Gloeosporium minus, etc.)",
+      "pathogen_type": "fungal",
+      "affected_crops": ["blueberry"],
+      "aliases": ["Blueberry leaf", "blueberry leaf spot"],
+      "symptoms": {
+        "mild": "Small reddish-brown spots on leaves in early summer",
+        "moderate": "Spots enlarge, centers turn gray-brown, premature reddening of leaves",
+        "severe": "Heavy defoliation, reduced fruit bud formation for next year"
+      },
+      "treatments": {
+        "chemical": ["Chlorothalonil after harvest", "Propiconazole", "Captan"],
+        "biological": ["Copper-based organic sprays"],
+        "cultural": ["Prune for open canopy", "Remove and destroy fallen leaves", "Maintain soil pH 4.5-5.5"]
+      },
+      "prevention": ["Apply fungicide after harvest through fall", "Maintain plant vigor with proper fertilization", "Select resistant varieties"],
+      "environmental_risk": {"temperature_c": [20, 28], "humidity_pct": 80, "rainfall": "moderate"}
+    },
+    "healthy": {
+      "common_name": "Healthy Plant",
+      "scientific_name": "N/A",
+      "pathogen_type": "none",
+      "affected_crops": ["all"],
+      "aliases": ["healthy", "Tomato leaf", "Apple leaf", "grape leaf", "Bell_pepper leaf"],
+      "symptoms": {
+        "mild": "N/A — plant is healthy",
+        "moderate": "N/A — plant is healthy",
+        "severe": "N/A — plant is healthy"
+      },
+      "treatments": {
+        "chemical": ["No treatment needed"],
+        "biological": ["Maintain beneficial microbe populations"],
+        "cultural": ["Continue good agricultural practices"]
+      },
+      "prevention": ["Maintain proper irrigation and nutrition", "Scout regularly for early detection", "Practice crop rotation"],
+      "environmental_risk": {"temperature_c": [18, 28], "humidity_pct": 60, "rainfall": "moderate"}
+    }
+  }
+}

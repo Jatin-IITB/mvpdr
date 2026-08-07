@@ -12,3 +12,5 @@ tqdm>=4.65.0
 ftfy
 regex
 gradio>=4.0
+pydantic>=2.0
+ollama>=0.4.0

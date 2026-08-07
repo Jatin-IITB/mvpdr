@@ -34,16 +34,20 @@ dependencies = [
     "ftfy",
     "regex",
     "gradio>=4.0",
+    "pydantic>=2.0",
+    "ollama>=0.4.0",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
+cloud-agent = ["anthropic>=1.0"]
 
 [project.scripts]
 mvpdr-train = "train:main"
 mvpdr-train-plus = "train_plus:main"
 mvpdr-train-da = "train_domain_adapt:main"
 mvpdr-predict = "predict:main"
+mvpdr-diagnose = "scripts.diagnose:main"
 
 [tool.setuptools.packages.find]
 include = ["mvpdr*"]
