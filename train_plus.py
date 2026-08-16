@@ -46,6 +46,8 @@ def get_arguments():
                         choices=["RN50", "RN101", "ViT-B/32", "ViT-B/16"])
     parser.add_argument("--shots", type=int, default=None)
     parser.add_argument("--gpu", type=str, default="0")
+    parser.add_argument("--output_dir", type=str, default=None,
+                        help="Override output directory")
     return parser.parse_args()
 
 
@@ -78,10 +80,13 @@ def main():
 
     set_random_seed(args.seed)
 
-    output_dir = (
-        f"results/{cfg['dataset']}/{cfg['backbone']}/"
-        f"plus_seed{args.seed}_{cfg['shots']}shot"
-    )
+    if args.output_dir:
+        output_dir = args.output_dir
+    else:
+        output_dir = (
+            f"results/{cfg['dataset']}/{cfg['backbone']}/"
+            f"plus_seed{args.seed}_{cfg['shots']}shot"
+        )
     os.makedirs(output_dir, exist_ok=True)
     cache_dir = os.path.join("caches", cfg["dataset"])
     os.makedirs(cache_dir, exist_ok=True)

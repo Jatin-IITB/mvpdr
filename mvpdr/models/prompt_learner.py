@@ -39,8 +39,9 @@ class PromptLearner(nn.Module):
         )
 
         # Extract token embeddings for class names
+        device = next(clip_model.parameters()).device
         with torch.no_grad():
-            all_tokens = clip.tokenize(classnames)
+            all_tokens = clip.tokenize(classnames).to(device)
             all_emb = clip_model.token_embedding(all_tokens).type(dtype)
 
             sot_emb = all_emb[0, 0:1]
@@ -62,7 +63,7 @@ class PromptLearner(nn.Module):
 
         # Learnable context vectors — optionally initialized from a text string
         if ctx_init:
-            init_tokens = clip.tokenize([ctx_init.replace("_", " ")])[0]
+            init_tokens = clip.tokenize([ctx_init.replace("_", " ")])[0].to(device)
             with torch.no_grad():
                 init_emb = clip_model.token_embedding(init_tokens.unsqueeze(0)).type(dtype)[0]
             n_use = min(n_ctx, init_tokens.argmax().item() - 1)
